@@ -17,18 +17,12 @@
   --bg-tertiary: #ecf0f1;
   --bg-overlay: rgba(255, 255, 255, 0.95);
   
-  /* Enhanced Background System */
-  --bg-pattern: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
-  --bg-texture: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.1) 0%, transparent 50%);
-  --bg-sound-waves: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 2px,
-    rgba(52, 152, 219, 0.05) 2px,
-    rgba(52, 152, 219, 0.05) 4px
-  );
+  /* Enhanced Background System - Soft Fog Texture */
+  --bg-pattern: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --bg-texture: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.08) 0%, transparent 50%);
+  --bg-fog: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   
   /* Text Colors */
   --text-primary: #2c3e50;
@@ -78,17 +72,11 @@
   --bg-tertiary: #3a3a3a;
   --bg-overlay: rgba(26, 26, 26, 0.95);
   
-  --bg-pattern: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
-  --bg-texture: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.08) 0%, transparent 50%);
-  --bg-sound-waves: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 2px,
-    rgba(52, 152, 219, 0.03) 2px,
-    rgba(52, 152, 219, 0.03) 4px
-  );
+  --bg-pattern: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  --bg-texture: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.1) 0%, transparent 50%);
+  --bg-fog: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   
   --text-primary: #ffffff;
   --text-secondary: #b0b0b0;
@@ -100,48 +88,43 @@
   --shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* High Contrast Mode */
+/* High Contrast Mode - Text Only Enhancement */
 .high-contrast {
-  --bg-primary: #000000;
-  --bg-secondary: #1a1a1a;
-  --bg-tertiary: #333333;
-  --bg-overlay: rgba(0, 0, 0, 0.95);
-  
-  --bg-pattern: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
-  --bg-texture: none;
-  --bg-sound-waves: none;
-  
-  --text-primary: #ffffff;
-  --text-secondary: #ffffff;
-  --text-light: #ffffff;
-  --text-muted: #cccccc;
-  
-  --primary-color: #ff6b6b;
-  --secondary-color: #4ecdc4;
-  --accent-color: #ffe66d;
-  
-  --border-color: #666666;
-  --shadow-light: 0 2px 10px rgba(255, 255, 255, 0.1);
-  --shadow-medium: 0 4px 20px rgba(255, 255, 255, 0.15);
-  --shadow-heavy: 0 8px 30px rgba(255, 255, 255, 0.2);
-}
-
-.high-contrast[data-theme="dark"] {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f0f0f0;
-  --bg-tertiary: #e0e0e0;
-  --bg-overlay: rgba(255, 255, 255, 0.95);
-  
   --text-primary: #000000;
   --text-secondary: #000000;
   --text-light: #000000;
   --text-muted: #333333;
-  
-  --primary-color: #d32f2f;
-  --secondary-color: #1976d2;
-  --accent-color: #f57c00;
-  
-  --border-color: #999999;
+}
+
+.high-contrast[data-theme="dark"] {
+  --text-primary: #ffffff;
+  --text-secondary: #ffffff;
+  --text-light: #ffffff;
+  --text-muted: #cccccc;
+}
+
+/* High contrast text enhancements */
+.high-contrast h1,
+.high-contrast h2,
+.high-contrast h3,
+.high-contrast h4,
+.high-contrast h5,
+.high-contrast h6 {
+  font-weight: 700 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.high-contrast p,
+.high-contrast span,
+.high-contrast li {
+  font-weight: 500 !important;
+}
+
+.high-contrast .nav-link,
+.high-contrast .btn,
+.high-contrast button {
+  font-weight: 600 !important;
+  border: 2px solid currentColor !important;
 }
 
 /* Large Text Mode */
@@ -159,13 +142,13 @@
 /* Simplified Layout Mode */
 .simplified-layout .hero-background,
 .simplified-layout .bg-texture,
-.simplified-layout .bg-sound-waves {
+.simplified-layout .bg-fog {
   display: none !important;
 }
 
 .simplified-layout {
   --bg-texture: none;
-  --bg-sound-waves: none;
+  --bg-fog: none;
   --shadow-light: none;
   --shadow-medium: none;
   --shadow-heavy: none;
@@ -192,7 +175,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Enhanced Background System */
+/* Enhanced Background System - Soft Fog Texture */
 body::before {
   content: '';
   position: fixed;
@@ -202,7 +185,7 @@ body::before {
   height: 100%;
   background: var(--bg-pattern);
   background-attachment: fixed;
-  z-index: -2;
+  z-index: -3;
   pointer-events: none;
 }
 
@@ -213,11 +196,11 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--bg-texture), var(--bg-sound-waves);
+  background: var(--bg-texture), var(--bg-fog);
   background-attachment: fixed;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 /* Exclude hero section from background effects */
@@ -247,6 +230,7 @@ body::after {
 .navbar.scrolled {
   background: var(--bg-overlay);
   box-shadow: var(--shadow-medium);
+  backdrop-filter: blur(25px);
 }
 
 .nav-container {
@@ -593,7 +577,7 @@ main {
   opacity: 0.1;
 }
 
-/* Hero Section */
+/* Hero Section with Enhanced Video Effects */
 .hero {
   position: relative;
   height: 100vh;
@@ -641,6 +625,7 @@ main {
   width: 100%;
   height: 100%;
   z-index: 1;
+  transition: all var(--transition-slow);
 }
 
 .background-video {
@@ -649,6 +634,12 @@ main {
   object-fit: cover;
   filter: brightness(0.7) contrast(1.1);
   transition: all var(--transition-slow);
+}
+
+/* Enhanced video hover effects */
+.hero:hover .background-video {
+  filter: brightness(1.2) contrast(1.1);
+  transform: scale(1.02);
 }
 
 .hero-background::after {
@@ -660,6 +651,11 @@ main {
   height: 100%;
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
   z-index: 1;
+  transition: all var(--transition-slow);
+}
+
+.hero:hover .hero-background::after {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
 }
 
 /* Enhanced Buttons */
@@ -706,6 +702,16 @@ main {
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-medium), var(--glow-primary);
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: var(--shadow-medium), var(--glow-primary);
+  }
+  50% {
+    box-shadow: var(--shadow-heavy), 0 0 25px rgba(231, 76, 60, 0.5);
+  }
 }
 
 .btn-secondary {
@@ -732,7 +738,7 @@ main {
   box-shadow: var(--shadow-medium);
 }
 
-/* Page Headers */
+/* Page Headers with Animation */
 .page-header {
   background: var(--bg-overlay);
   backdrop-filter: blur(10px);
@@ -740,6 +746,18 @@ main {
   text-align: center;
   border-bottom: 1px solid var(--border-color);
   position: relative;
+  animation: slideInFromTop 0.8s ease-out;
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .page-header::before {
@@ -835,7 +853,7 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-/* Enhanced Cards */
+/* Enhanced Cards with Soft Shadows */
 .highlight-card,
 .info-card,
 .inclusivity-card,
@@ -853,6 +871,7 @@ section {
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-light);
 }
 
 .highlight-card::before,
