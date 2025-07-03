@@ -1,5 +1,5 @@
 // EGCA European 2025 Goalball Tournament - Enhanced JavaScript
-// Enhanced with interactive physics, accessibility features, and voice assistant
+// Enhanced with interactive physics, accessibility features, and improved voice assistant
 
 // Import translation system
 document.addEventListener('DOMContentLoaded', function() {
@@ -16,11 +16,12 @@ function initializeWebsite() {
     // Initialize all components
     initializeNavigation();
     initializeDarkMode();
+    initializeContrastToggle();
     initializeLanguageSwitcher();
     initializeAnimations();
     initializePageSpecificFeatures();
     initializePageLoader();
-    initializeAccessibilityFeatures(); // Moved before voice assistant
+    initializeAccessibilityFeatures();
     initializeVoiceAssistant();
     initializeInteractivePhysics();
 }
@@ -103,6 +104,36 @@ function initializeDarkMode() {
             darkModeToggle.innerHTML = newTheme === 'dark' 
                 ? '<i class="fas fa-moon"></i>' 
                 : '<i class="fas fa-sun"></i>';
+        });
+    }
+}
+
+// SECTION: Enhanced Contrast Toggle
+function initializeContrastToggle() {
+    // Create contrast toggle button
+    const navControls = document.querySelector('.nav-controls');
+    if (navControls) {
+        const contrastToggle = document.createElement('button');
+        contrastToggle.className = 'contrast-toggle';
+        contrastToggle.id = 'contrastToggle';
+        contrastToggle.innerHTML = '<i class="fas fa-adjust"></i>';
+        contrastToggle.setAttribute('aria-label', 'Toggle high contrast mode');
+        contrastToggle.setAttribute('title', 'Toggle high contrast mode');
+        
+        // Insert before dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        navControls.insertBefore(contrastToggle, darkModeToggle);
+        
+        // Check for saved contrast preference
+        const savedContrast = localStorage.getItem('egca-high-contrast') === 'true';
+        if (savedContrast) {
+            document.body.classList.add('high-contrast');
+            contrastToggle.classList.add('active');
+            contrastToggle.innerHTML = '<i class="fas fa-eye"></i>';
+        }
+        
+        contrastToggle.addEventListener('click', () => {
+            toggleHighContrast();
         });
     }
 }
@@ -239,29 +270,53 @@ function initializeAnimations() {
     fadeElements.forEach(el => observer.observe(el));
 }
 
-// SECTION: Accessibility Features
+// SECTION: Enhanced Accessibility Features
 function initializeAccessibilityFeatures() {
     // High contrast toggle
     window.toggleHighContrast = function() {
-        document.body.classList.toggle('high-contrast');
-        localStorage.setItem('egca-high-contrast', document.body.classList.contains('high-contrast'));
+        const body = document.body;
+        const contrastToggle = document.getElementById('contrastToggle');
+        
+        body.classList.toggle('high-contrast');
+        const isHighContrast = body.classList.contains('high-contrast');
+        
+        localStorage.setItem('egca-high-contrast', isHighContrast);
+        
+        if (contrastToggle) {
+            contrastToggle.classList.toggle('active', isHighContrast);
+            contrastToggle.innerHTML = isHighContrast 
+                ? '<i class="fas fa-eye"></i>' 
+                : '<i class="fas fa-adjust"></i>';
+        }
+        
+        // Announce change to screen readers
+        announceToScreenReader(isHighContrast ? 'High contrast mode enabled' : 'High contrast mode disabled');
     };
     
     // Large text toggle
     window.toggleLargeText = function() {
         document.body.classList.toggle('large-text');
-        localStorage.setItem('egca-large-text', document.body.classList.contains('large-text'));
+        const isLargeText = document.body.classList.contains('large-text');
+        localStorage.setItem('egca-large-text', isLargeText);
+        announceToScreenReader(isLargeText ? 'Large text mode enabled' : 'Large text mode disabled');
     };
     
     // Simplified layout toggle
     window.toggleSimplifiedLayout = function() {
         document.body.classList.toggle('simplified-layout');
-        localStorage.setItem('egca-simplified-layout', document.body.classList.contains('simplified-layout'));
+        const isSimplified = document.body.classList.contains('simplified-layout');
+        localStorage.setItem('egca-simplified-layout', isSimplified);
+        announceToScreenReader(isSimplified ? 'Simplified layout enabled' : 'Simplified layout disabled');
     };
     
     // Load saved accessibility preferences
     if (localStorage.getItem('egca-high-contrast') === 'true') {
         document.body.classList.add('high-contrast');
+        const contrastToggle = document.getElementById('contrastToggle');
+        if (contrastToggle) {
+            contrastToggle.classList.add('active');
+            contrastToggle.innerHTML = '<i class="fas fa-eye"></i>';
+        }
     }
     
     if (localStorage.getItem('egca-large-text') === 'true') {
@@ -285,10 +340,29 @@ function initializeAccessibilityFeatures() {
             e.preventDefault();
             document.getElementById('voiceAssistantToggle')?.click();
         }
+        
+        // Alt + C toggles contrast
+        if (e.altKey && e.key === 'c') {
+            e.preventDefault();
+            toggleHighContrast();
+        }
     });
+    
+    // Add skip link
+    const skipLink = document.createElement('a');
+    skipLink.href = '#main-content';
+    skipLink.className = 'skip-link';
+    skipLink.textContent = 'Skip to main content';
+    document.body.insertBefore(skipLink, document.body.firstChild);
+    
+    // Add main content ID
+    const main = document.querySelector('main');
+    if (main) {
+        main.id = 'main-content';
+    }
 }
 
-// SECTION: Voice Assistant Chatbot
+// SECTION: Enhanced Voice Assistant Chatbot
 function initializeVoiceAssistant() {
     createVoiceAssistantUI();
     
@@ -300,6 +374,9 @@ function initializeVoiceAssistant() {
     let isListening = false;
     let recognition = null;
     let synthesis = window.speechSynthesis;
+    let currentReadingPosition = 0;
+    let pageContent = [];
+    let isReading = false;
     
     // Initialize speech recognition if available
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
@@ -333,14 +410,15 @@ function initializeVoiceAssistant() {
             
             if (assistantPanel.classList.contains('active')) {
                 playBellSound();
-                addAssistantMessage('bot', 'Hello! I\'m your EGCA assistant. I can help you navigate the site, read content aloud, or answer questions about the tournament. Try saying "read this page" or "go to teams".');
+                addAssistantMessage('bot', 'Hello! I\'m your EGCA assistant. I can help you navigate the site, read content aloud, or answer questions about the tournament. Try saying "read this page", "read next section", or "go to teams".');
+                preparePageContent();
             }
         });
     }
     
     // Voice control buttons
     document.getElementById('startListening')?.addEventListener('click', startListening);
-    document.getElementById('readPage')?.addEventListener('click', readCurrentPage);
+    document.getElementById('readPage')?.addEventListener('click', () => readCurrentPage(true));
     document.getElementById('toggleContrast')?.addEventListener('click', toggleHighContrast);
     document.getElementById('toggleTextSize')?.addEventListener('click', toggleLargeText);
     
@@ -354,11 +432,82 @@ function initializeVoiceAssistant() {
         }
     }
     
+    function preparePageContent() {
+        // Get all readable content from the page
+        pageContent = [];
+        currentReadingPosition = 0;
+        
+        // Get page title and subtitle
+        const pageTitle = document.querySelector('.page-title, .hero-title')?.textContent;
+        const pageSubtitle = document.querySelector('.page-subtitle, .hero-subtitle')?.textContent;
+        
+        if (pageTitle) {
+            pageContent.push({
+                type: 'title',
+                text: pageTitle,
+                element: document.querySelector('.page-title, .hero-title')
+            });
+        }
+        
+        if (pageSubtitle && pageSubtitle !== pageTitle) {
+            pageContent.push({
+                type: 'subtitle',
+                text: pageSubtitle,
+                element: document.querySelector('.page-subtitle, .hero-subtitle')
+            });
+        }
+        
+        // Get section content
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            const sectionTitle = section.querySelector('.section-title, h2, h3')?.textContent;
+            if (sectionTitle) {
+                pageContent.push({
+                    type: 'section-title',
+                    text: sectionTitle,
+                    element: section.querySelector('.section-title, h2, h3')
+                });
+            }
+            
+            // Get paragraphs and lists in this section
+            const paragraphs = section.querySelectorAll('p, li');
+            paragraphs.forEach(p => {
+                const text = p.textContent.trim();
+                if (text && text.length > 10) {
+                    pageContent.push({
+                        type: 'content',
+                        text: text,
+                        element: p
+                    });
+                }
+            });
+            
+            // Get stats and special content
+            const stats = section.querySelectorAll('.stat-number, .team-name, .award-card h3');
+            stats.forEach(stat => {
+                const text = stat.textContent.trim();
+                if (text) {
+                    pageContent.push({
+                        type: 'stat',
+                        text: text,
+                        element: stat
+                    });
+                }
+            });
+        });
+    }
+    
     function handleVoiceCommand(command) {
         addAssistantMessage('user', command);
         
         if (command.includes('read this page') || command.includes('read page')) {
-            readCurrentPage();
+            readCurrentPage(true);
+        } else if (command.includes('read next') || command.includes('continue reading') || command.includes('read the next section')) {
+            readNextSection();
+        } else if (command.includes('read the rest') || command.includes('keep reading')) {
+            readRemainingContent();
+        } else if (command.includes('stop reading') || command.includes('stop')) {
+            stopReading();
         } else if (command.includes('go to teams') || command.includes('teams')) {
             navigateToPage('teams.html');
             speak('Navigating to teams page');
@@ -378,7 +527,7 @@ function initializeVoiceAssistant() {
             voteForTeam('greece');
             speak('Voted for Greece');
         } else if (command.includes('help') || command.includes('what can you do')) {
-            const helpText = 'I can read pages aloud, navigate to different sections, toggle accessibility features, and help with voting. Try saying "read this page", "go to teams", "high contrast", or "vote for Greece".';
+            const helpText = 'I can read pages aloud, navigate to different sections, toggle accessibility features, and help with voting. Try saying "read this page", "read next section", "go to teams", "high contrast", or "vote for Greece".';
             addAssistantMessage('bot', helpText);
             speak(helpText);
         } else {
@@ -388,24 +537,143 @@ function initializeVoiceAssistant() {
         }
     }
     
-    function readCurrentPage() {
-        const pageTitle = document.querySelector('.page-title, .hero-title')?.textContent || 'EGCA European 2025';
-        const pageSubtitle = document.querySelector('.page-subtitle, .hero-subtitle')?.textContent || '';
-        const mainContent = Array.from(document.querySelectorAll('p, h2, h3')).slice(0, 5).map(el => el.textContent).join('. ');
+    function readCurrentPage(fromBeginning = false) {
+        if (fromBeginning) {
+            currentReadingPosition = 0;
+        }
         
-        const textToRead = `${pageTitle}. ${pageSubtitle}. ${mainContent}`;
-        speak(textToRead);
-        addAssistantMessage('bot', 'Reading page content aloud...');
+        preparePageContent();
+        
+        if (pageContent.length === 0) {
+            const message = 'No readable content found on this page.';
+            addAssistantMessage('bot', message);
+            speak(message);
+            return;
+        }
+        
+        isReading = true;
+        addAssistantMessage('bot', 'Reading page content...');
+        readContentSequentially();
+    }
+    
+    function readNextSection() {
+        if (!isReading && pageContent.length === 0) {
+            preparePageContent();
+        }
+        
+        // Find next section title
+        let nextSectionIndex = currentReadingPosition;
+        for (let i = currentReadingPosition; i < pageContent.length; i++) {
+            if (pageContent[i].type === 'section-title') {
+                nextSectionIndex = i;
+                break;
+            }
+        }
+        
+        if (nextSectionIndex < pageContent.length) {
+            currentReadingPosition = nextSectionIndex;
+            isReading = true;
+            addAssistantMessage('bot', 'Reading next section...');
+            readContentSequentially();
+        } else {
+            const message = 'No more sections to read.';
+            addAssistantMessage('bot', message);
+            speak(message);
+        }
+    }
+    
+    function readRemainingContent() {
+        if (pageContent.length === 0) {
+            preparePageContent();
+        }
+        
+        if (currentReadingPosition < pageContent.length) {
+            isReading = true;
+            addAssistantMessage('bot', 'Reading remaining content...');
+            readContentSequentially();
+        } else {
+            const message = 'No more content to read.';
+            addAssistantMessage('bot', message);
+            speak(message);
+        }
+    }
+    
+    function readContentSequentially() {
+        if (!isReading || currentReadingPosition >= pageContent.length) {
+            isReading = false;
+            addAssistantMessage('bot', 'Finished reading. Say "read next section" to continue or "read this page" to start over.');
+            return;
+        }
+        
+        const content = pageContent[currentReadingPosition];
+        
+        // Scroll to the element being read
+        if (content.element) {
+            content.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Highlight the element being read
+            highlightElement(content.element);
+        }
+        
+        // Speak the content
+        speakWithCallback(content.text, () => {
+            currentReadingPosition++;
+            // Small delay between sections for better comprehension
+            setTimeout(() => {
+                if (isReading) {
+                    readContentSequentially();
+                }
+            }, 500);
+        });
+    }
+    
+    function stopReading() {
+        isReading = false;
+        if (synthesis) {
+            synthesis.cancel();
+        }
+        addAssistantMessage('bot', 'Stopped reading.');
+        removeHighlight();
+    }
+    
+    function highlightElement(element) {
+        removeHighlight();
+        element.style.outline = '3px solid var(--primary-color)';
+        element.style.outlineOffset = '2px';
+        element.setAttribute('data-reading-highlight', 'true');
+    }
+    
+    function removeHighlight() {
+        const highlighted = document.querySelector('[data-reading-highlight]');
+        if (highlighted) {
+            highlighted.style.outline = '';
+            highlighted.style.outlineOffset = '';
+            highlighted.removeAttribute('data-reading-highlight');
+        }
     }
     
     function speak(text) {
         if (synthesis) {
-            synthesis.cancel(); // Stop any ongoing speech
+            synthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.rate = 0.9;
             utterance.pitch = 1;
             utterance.volume = 0.8;
             synthesis.speak(utterance);
+        }
+    }
+    
+    function speakWithCallback(text, callback) {
+        if (synthesis) {
+            synthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.9;
+            utterance.pitch = 1;
+            utterance.volume = 0.8;
+            utterance.onend = callback;
+            synthesis.speak(utterance);
+        } else if (callback) {
+            callback();
         }
     }
     
@@ -489,6 +757,21 @@ function createVoiceAssistantUI() {
     `;
     
     document.body.insertAdjacentHTML('beforeend', assistantHTML);
+}
+
+// SECTION: Utility function for screen reader announcements
+function announceToScreenReader(message) {
+    const announcement = document.createElement('div');
+    announcement.setAttribute('aria-live', 'polite');
+    announcement.setAttribute('aria-atomic', 'true');
+    announcement.className = 'sr-only';
+    announcement.textContent = message;
+    
+    document.body.appendChild(announcement);
+    
+    setTimeout(() => {
+        document.body.removeChild(announcement);
+    }, 1000);
 }
 
 // SECTION: Page-Specific Features
@@ -810,6 +1093,9 @@ function initializeVotingSystem() {
             setTimeout(() => {
                 updateVoteChart();
             }, 500);
+            
+            // Announce to screen readers
+            announceToScreenReader(`Voted for ${team}. Thank you for voting!`);
         });
     });
 }
