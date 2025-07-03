@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Tournament - EGCA European 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- SECTION: Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="EGCA European 2025 Home">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="info.html" class="nav-link active" data-translate="nav-info">Info</a>
+                </li>
+                <li class="nav-item">
+                    <a href="invitations.html" class="nav-link" data-translate="nav-invitations">Invitations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="teams.html" class="nav-link" data-translate="nav-teams">Teams</a>
+                </li>
+                <li class="nav-item">
+                    <a href="results.html" class="nav-link" data-translate="nav-results">Results</a>
+                </li>
+                <li class="nav-item">
+                    <a href="members.html" class="nav-link" data-translate="nav-members">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a href="help.html" class="nav-link" data-translate="nav-help">Help</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <div class="language-switcher">
+                    <button class="language-toggle" id="languageToggle">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <button class="language-option" data-lang="en">
+                            <span class="flag">🇬🇧</span> English
+                        </button>
+                        <button class="language-option" data-lang="el">
+                            <span class="flag">🇬🇷</span> Ελληνικά
+                        </button>
+                        <button class="language-option" data-lang="fr">
+                            <span class="flag">🇫🇷</span> Français
+                        </button>
+                        <button class="language-option" data-lang="de">
+                            <span class="flag">🇩🇪</span> Deutsch
+                        </button>
+                        <button class="language-option" data-lang="it">
+                            <span class="flag">🇮🇹</span> Italiano
+                        </button>
+                        <button class="language-option" data-lang="es">
+                            <span class="flag">🇪🇸</span> Español
+                        </button>
+                        <button class="language-option" data-lang="pl">
+                            <span class="flag">🇵🇱</span> Polski
+                        </button>
+                        <button class="language-option" data-lang="nl">
+                            <span class="flag">🇳🇱</span> Nederlands
+                        </button>
+                    </div>
+                </div>
+                <button class="dark-mode-toggle" id="darkModeToggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION: Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- SECTION: Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html" class="sidebar-link">Home</a></li>
+            <li><a href="info.html" class="sidebar-link active">Info</a></li>
+            <li><a href="invitations.html" class="sidebar-link">Invitations</a></li>
+            <li><a href="teams.html" class="sidebar-link">Teams</a></li>
+            <li><a href="results.html" class="sidebar-link">Results</a></li>
+            <li><a href="members.html" class="sidebar-link">Members</a></li>
+            <li><a href="help.html" class="sidebar-link">Help</a></li>
+        </ul>
+    </div>
+
+    <!-- SECTION: Main Content -->
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title fade-in">About the Tournament</h1>
+                <p class="page-subtitle fade-in">Learn about our mission, goalball sport, and commitment to inclusivity</p>
+            </div>
+        </div>
+
+        <!-- SECTION: Our Mission -->
+        <section class="mission section-fade">
+            <div class="container">
+                <h2 class="section-title">Our Mission</h2>
+                <div class="content-card">
+                    <div class="mission-content">
+                        <p>The EGCA European 2025 Goalball Tournament represents more than just a sporting event. We are committed to celebrating the extraordinary abilities of adaptive athletes, fostering international unity, and promoting the inclusive spirit of goalball across Europe.</p>
+                        <p>Our mission is to provide a world-class platform where teams can compete at the highest level while inspiring communities and breaking down barriers through sport.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: What is Goalball -->
+        <section class="goalball-intro section-fade">
+            <div class="container">
+                <h2 class="section-title">What is Goalball?</h2>
+                <div class="content-card">
+                    <div class="goalball-content">
+                        <div class="goalball-text">
+                            <p>Goalball is a team sport designed specifically for athletes with visual impairments. Created in 1946 for World War II veterans, it has evolved into one of the most popular Paralympic sports worldwide.</p>
+                            <p>The game is played by two teams of three players each on a volleyball-sized court. Players wear eyeshades to ensure fairness, and the ball contains bells to help players track its movement through sound.</p>
+                            <p>The objective is simple yet challenging: score goals by rolling the ball past the opposing team's goal line while defending your own goal through precise positioning and quick reflexes.</p>
+                            <div class="goalball-features">
+                                <div class="feature">
+                                    <i class="fas fa-users"></i>
+                                    <span>3 players per team</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Two 12-minute halves</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-volume-up"></i>
+                                    <span>Sound-based gameplay</span>
+                                </div>
+                            </div>
+
+                            <div class="goalball-minigame-section" style="text-align: center; padding: 20px;">
+                                <a href="GoalballChallenge/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 30px; text-decoration: none;">
+                                    🎮 Launch Interactive Goalball Experience
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Commitment to Inclusivity -->
+        <section class="inclusivity section-fade">
+            <div class="container">
+                <h2 class="section-title">Commitment to Inclusivity</h2>
+                <div class="inclusivity-grid">
+                    <div class="inclusivity-card">
+                        <div class="inclusivity-icon">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <h3>Audio Guidance</h3>
+                        <p>Complete audio descriptions and announcements in multiple languages</p>
+                    </div>
+                    <div class="inclusivity-card">
+                        <div class="inclusivity-icon">
+                            <i class="fas fa-wheelchair"></i>
+                        </div>
+                        <h3>Accessibility</h3>
+                        <p>Fully accessible venues with specialized facilities for all athletes</p>
+                    </div>
+                    <div class="inclusivity-card">
+                        <div class="inclusivity-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Fair Play</h3>
+                        <p>Strict adherence to international goalball rules and regulations</p>
+                    </div>
+                    <div class="inclusivity-card">
+                        <div class="inclusivity-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Support Services</h3>
+                        <p>Comprehensive support for athletes, families, and spectators</p>
+                    </div>
+                    <div class="inclusivity-card">
+                        <div class="inclusivity-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Cultural Exchange</h3>
+                        <p>Promoting understanding and friendship between European nations</p>
+                    </div>
+                    <div class="inclusivity-card">
+                        <div class="inclusivity-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Excellence</h3>
+                        <p>Celebrating the highest standards of athletic achievement</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Get in Touch -->
+        <section class="contact-info section-fade">
+            <div class="container">
+                <h2 class="section-title">Get in Touch</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>info@egca2025.eu</p>
+                        <a href="mailto:info@egca2025.eu" class="btn btn-primary">Send Email</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Phone</h3>
+                        <p>+30 231 123 4567</p>
+                        <a href="tel:+302311234567" class="btn btn-primary">Call Now</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Location</h3>
+                        <p>Thessaloniki Sports Arena<br>Thessaloniki, Greece</p>
+                        <a href="help.html" class="btn btn-primary">Get Directions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SECTION: Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EGCA European 2025</h3>
+                    <p>Celebrating excellence in adaptive sports and international unity through goalball.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="info.html">About Tournament</a></li>
+                        <li><a href="teams.html">Teams</a></li>
+                        <li><a href="invitations.html">Registration</a></li>
+                        <li><a href="help.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> info@egca2025.eu</p>
+                    <p><i class="fas fa-phone"></i> +30 231 123 4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Thessaloniki, Greece</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EGCA European Goalball Tournament. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+   <script src="script.js"></script>
+</body>
+</html>

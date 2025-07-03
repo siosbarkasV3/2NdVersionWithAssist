@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGCA European 2025 Goalball Tournament</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="EGCA European 2025 Home">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active" data-translate="nav-home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="info.html" class="nav-link" data-translate="nav-info">Info</a>
+                </li>
+                <li class="nav-item">
+                    <a href="invitations.html" class="nav-link" data-translate="nav-invitations">Invitations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="teams.html" class="nav-link" data-translate="nav-teams">Teams</a>
+                </li>
+                <li class="nav-item">
+                    <a href="results.html" class="nav-link" data-translate="nav-results">Results</a>
+                </li>
+                <li class="nav-item">
+                    <a href="members.html" class="nav-link" data-translate="nav-members">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a href="help.html" class="nav-link" data-translate="nav-help">Help</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <div class="language-switcher">
+                    <button class="language-toggle" id="languageToggle">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <button class="language-option" data-lang="en">
+                            <span class="flag">🇬🇧</span> English
+                        </button>
+                        <button class="language-option" data-lang="el">
+                            <span class="flag">🇬🇷</span> Ελληνικά
+                        </button>
+                        <button class="language-option" data-lang="fr">
+                            <span class="flag">🇫🇷</span> Français
+                        </button>
+                        <button class="language-option" data-lang="de">
+                            <span class="flag">🇩🇪</span> Deutsch
+                        </button>
+                        <button class="language-option" data-lang="it">
+                            <span class="flag">🇮🇹</span> Italiano
+                        </button>
+                        <button class="language-option" data-lang="es">
+                            <span class="flag">🇪🇸</span> Español
+                        </button>
+                        <button class="language-option" data-lang="pl">
+                            <span class="flag">🇵🇱</span> Polski
+                        </button>
+                        <button class="language-option" data-lang="nl">
+                            <span class="flag">🇳🇱</span> Nederlands
+                        </button>
+                    </div>
+                </div>
+                <button class="dark-mode-toggle" id="darkModeToggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html" class="sidebar-link active">Home</a></li>
+            <li><a href="info.html" class="sidebar-link">Info</a></li>
+            <li><a href="invitations.html" class="sidebar-link">Invitations</a></li>
+            <li><a href="teams.html" class="sidebar-link">Teams</a></li>
+            <li><a href="results.html" class="sidebar-link">Results</a></li>
+            <li><a href="members.html" class="sidebar-link">Members</a></li>
+            <li><a href="help.html" class="sidebar-link">Help</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title fade-in" data-translate="page-title-home">EGCA European 2025 Goalball Tournament</h1>
+                <p class="hero-subtitle fade-in" data-translate="page-subtitle-home">Celebrating Excellence in Adaptive Sports</p>
+                <div class="hero-buttons fade-in">
+                    <a href="teams.html" class="btn btn-primary" data-translate="nav-teams">View Teams</a>
+                    <a href="info.html" class="btn btn-secondary" data-translate="cta-learn-more">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-background">
+                <video autoplay muted loop playsinline class="background-video">
+                    <source src="indexbackground.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <!-- Tournament Highlights -->
+        <section class="highlights section-fade">
+            <div class="container">
+                <h2 class="section-title" data-translate="section-title-highlights">Tournament Highlights</h2>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3 data-translate="highlight-1-title">World-Class Competition</h3>
+                        <p data-translate="highlight-1-desc">Experience the highest level of goalball competition in Europe</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-globe-europe"></i>
+                        </div>
+                        <h3 data-translate="highlight-2-title">Inclusive Excellence</h3>
+                        <p data-translate="highlight-2-desc">Celebrating diversity and athletic achievement in adaptive sports</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 data-translate="highlight-3-title">Community Spirit</h3>
+                        <p data-translate="highlight-3-desc">Building bridges through sport and shared passion</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Thessaloniki, Greece</h3>
+                        <p>Historic city hosting world-class competition</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tournament Information -->
+        <section class="tournament-info section-fade">
+            <div class="container">
+                <h2 class="section-title">Tournament Information</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Date</h3>
+                        <p>March 15-20, 2025</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Location</h3>
+                        <p>Thessaloniki Sports Arena<br>Greece</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Contact</h3>
+                        <p>+30 231 123 4567</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>info@egca2025.eu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spacer -->
+        <div class="section-spacer"></div>
+
+        <!-- Call to Action -->
+        <section class="cta section-fade">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Join the Competition?</h2>
+                    <p>Register your team or learn more about participating in Europe's premier goalball tournament</p>
+                    <div class="cta-buttons">
+                        <a href="invitations.html" class="btn btn-primary">View Invitations</a>
+                        <a href="help.html" class="btn btn-secondary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EGCA European 2025</h3>
+                    <p>Celebrating excellence in adaptive sports and international unity through goalball.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="info.html">About Tournament</a></li>
+                        <li><a href="teams.html">Teams</a></li>
+                        <li><a href="invitations.html">Registration</a></li>
+                        <li><a href="help.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> info@egca2025.eu</p>
+                    <p><i class="fas fa-phone"></i> +30 231 123 4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Thessaloniki, Greece</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EGCA European Goalball Tournament. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Invitations - EGCA European 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="EGCA European 2025 Home">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="info.html" class="nav-link" data-translate="nav-info">Info</a>
+                </li>
+                <li class="nav-item">
+                    <a href="invitations.html" class="nav-link active" data-translate="nav-invitations">Invitations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="teams.html" class="nav-link" data-translate="nav-teams">Teams</a>
+                </li>
+                <li class="nav-item">
+                    <a href="results.html" class="nav-link" data-translate="nav-results">Results</a>
+                </li>
+                <li class="nav-item">
+                    <a href="members.html" class="nav-link" data-translate="nav-members">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a href="help.html" class="nav-link" data-translate="nav-help">Help</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <div class="language-switcher">
+                    <button class="language-toggle" id="languageToggle">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <button class="language-option" data-lang="en">
+                            <span class="flag">🇬🇧</span> English
+                        </button>
+                        <button class="language-option" data-lang="el">
+                            <span class="flag">🇬🇷</span> Ελληνικά
+                        </button>
+                        <button class="language-option" data-lang="fr">
+                            <span class="flag">🇫🇷</span> Français
+                        </button>
+                        <button class="language-option" data-lang="de">
+                            <span class="flag">🇩🇪</span> Deutsch
+                        </button>
+                        <button class="language-option" data-lang="it">
+                            <span class="flag">🇮🇹</span> Italiano
+                        </button>
+                        <button class="language-option" data-lang="es">
+                            <span class="flag">🇪🇸</span> Español
+                        </button>
+                        <button class="language-option" data-lang="pl">
+                            <span class="flag">🇵🇱</span> Polski
+                        </button>
+                        <button class="language-option" data-lang="nl">
+                            <span class="flag">🇳🇱</span> Nederlands
+                        </button>
+                    </div>
+                </div>
+                <button class="dark-mode-toggle" id="darkModeToggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html" class="sidebar-link">Home</a></li>
+            <li><a href="info.html" class="sidebar-link">Info</a></li>
+            <li><a href="invitations.html" class="sidebar-link active">Invitations</a></li>
+            <li><a href="teams.html" class="sidebar-link">Teams</a></li>
+            <li><a href="results.html" class="sidebar-link">Results</a></li>
+            <li><a href="members.html" class="sidebar-link">Members</a></li>
+            <li><a href="help.html" class="sidebar-link">Help</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title fade-in">Tournament Invitations</h1>
+                <p class="page-subtitle fade-in">Official invitation and registration information</p>
+            </div>
+        </div>
+
+        <!-- Official Invitation -->
+        <section class="invitation section-fade">
+            <div class="container">
+                <div class="content-card invitation-main-card">
+                    <h2 class="invitation-title">EGCA European 2025 Goalball Tournament</h2>
+                    
+                    <div class="invitation-content">
+                        <p>We are honored to invite your national goalball team to participate in the <strong>EGCA European 2025 Goalball Tournament</strong>, the premier goalball competition in Europe.</p>
+                        
+                        <p>This tournament will feature:</p>
+                        <ul class="invitation-features">
+                            <li><strong>Elite Competition:</strong> Top European teams competing for continental supremacy</li>
+                            <li><strong>World-Class Facilities:</strong> State-of-the-art sports arena with full accessibility</li>
+                            <li><strong>Professional Organization:</strong> IBSA-certified officials and comprehensive support services</li>
+                            <li><strong>Cultural Exchange:</strong> Opportunities for international friendship and understanding</li>
+                            <li><strong>Media Coverage:</strong> Extensive broadcasting and digital coverage across Europe</li>
+                        </ul>
+                        
+                        <!-- Nested Contact Card -->
+                        <div class="contact-nested-card">
+                            <h3>Tournament Details & Contact</h3>
+                            <div class="contact-details-grid">
+                                <div class="detail-item">
+                                    <strong>Date:</strong> March 15-20, 2025
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Venue:</strong> Thessaloniki Sports Arena, Greece
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Organizer:</strong> European Goalball Confederation of Athletes (EGCA)
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Contact:</strong> info@egca2025.eu | +30 231 123 4567
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="invitation-buttons">
+                            <button onclick="window.print()" class="btn btn-primary">
+                                <i class="fas fa-print"></i> Print Invitation
+                            </button>
+                            <a href="help.html" class="btn btn-outline">
+                                <i class="fas fa-envelope"></i> Contact for Registration
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Information -->
+        <section class="registration-info section-fade">
+            <div class="container">
+                <h2 class="section-title">Registration Information</h2>
+                <div class="content-card">
+                    <div class="registration-grid">
+                    <div class="registration-card">
+                        <div class="registration-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Required Documents</h3>
+                        <ul>
+                            <li>Team registration form</li>
+                            <li>Player classification certificates</li>
+                            <li>Medical clearance forms</li>
+                            <li>Travel documentation</li>
+                            <li>Insurance certificates</li>
+                        </ul>
+                    </div>
+                    <div class="registration-card">
+                        <div class="registration-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Important Dates</h3>
+                        <ul>
+                            <li><strong>Jan 15, 2025:</strong> Registration opens</li>
+                            <li><strong>Feb 15, 2025:</strong> Early registration deadline</li>
+                            <li><strong>Feb 28, 2025:</strong> Final registration deadline</li>
+                            <li><strong>Mar 10, 2025:</strong> Team arrival</li>
+                            <li><strong>Mar 15, 2025:</strong> Tournament begins</li>
+                        </ul>
+                    </div>
+                    <div class="registration-card">
+                        <div class="registration-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Participation</h3>
+                        <ul>
+                            <li>Maximum 6 players per team</li>
+                            <li>Minimum 3 players per team</li>
+                            <li>1 team coach required</li>
+                            <li>Optional team manager</li>
+                            <li>Medical support staff welcome</li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section class="awards section-fade">
+            <div class="container">
+                <h2 class="section-title">Awards & Recognition</h2>
+                <div class="awards-grid">
+                    <div class="award-card">
+                        <div class="award-icon gold">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Championship Trophy</h3>
+                        <p>First place team receives the EGCA European Championship Trophy and gold medals</p>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-icon silver">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Runner-up Medal</h3>
+                        <p>Second place team receives silver medals and official recognition</p>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-icon bronze">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Third Place Medal</h3>
+                        <p>Third place team receives bronze medals and certificates</p>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-icon special">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Special Awards</h3>
+                        <p>Fair Play Award, Best Player, and other special recognitions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Contact -->
+        <section class="registration-contact section-fade">
+            <div class="container">
+                <h2 class="section-title">Registration Contact</h2>
+                <div class="content-card contact-card-large">
+                    <div class="contact-info">
+                        <h3>EGCA Tournament Office</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email:</strong>
+                                    <a href="mailto:registration@egca2025.eu">registration@egca2025.eu</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>Phone:</strong>
+                                    <a href="tel:+302311234567">+30 231 123 4567</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Office Hours:</strong>
+                                    Monday - Friday, 9:00 - 17:00 EET
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Address:</strong>
+                                    Thessaloniki Sports Complex<br>
+                                    Macedonia, Greece
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-cta">
+                        <h4>Ready to Register?</h4>
+                        <p>Contact our registration team for detailed information and assistance with your team's participation.</p>
+                        <a href="help.html" class="btn btn-primary">Start Registration Process</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EGCA European 2025</h3>
+                    <p>Celebrating excellence in adaptive sports and international unity through goalball.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="info.html">About Tournament</a></li>
+                        <li><a href="teams.html">Teams</a></li>
+                        <li><a href="invitations.html">Registration</a></li>
+                        <li><a href="help.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> info@egca2025.eu</p>
+                    <p><i class="fas fa-phone"></i> +30 231 123 4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Thessaloniki, Greece</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EGCA European Goalball Tournament. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

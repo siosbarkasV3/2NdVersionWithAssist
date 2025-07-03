@@ -1,0 +1,368 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+#hud {
+    margin-bottom: 20px;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.score-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.team-label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.score {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.vs {
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+.game-message {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    backdrop-filter: blur(10px);
+}
+
+.game-area {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+#goalballCanvas {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  background: #4a7c2a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.countdown-display {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 20px 40px;
+    animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.controls {
+    margin: 30px 0;
+}
+
+.main-button {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+}
+
+.main-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #ff5252, #e53935);
+}
+
+.main-button:active {
+    transform: translateY(0);
+}
+
+.serve-controls, .defense-controls {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    backdrop-filter: blur(10px);
+}
+
+.control-group {
+    margin: 15px 0;
+}
+
+.control-group label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.player-buttons, .direction-buttons, .defense-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.player-btn, .direction-btn, .defense-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.player-btn:hover, .direction-btn:hover, .defense-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.player-btn.selected, .direction-btn.selected, .defense-btn.selected {
+    background: #ffd700;
+    color: #333;
+    border-color: #ffb300;
+}
+
+.serve-button {
+    background: linear-gradient(45deg, #4caf50, #45a049);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.serve-button:disabled {
+    background: #666;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.serve-button:not(:disabled):hover {
+    background: linear-gradient(45deg, #45a049, #3d8b40);
+    transform: translateY(-2px);
+}
+
+.instructions {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: left;
+    backdrop-filter: blur(10px);
+}
+
+.instructions h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #ffd700;
+}
+
+.instructions ul {
+    list-style-position: inside;
+    line-height: 1.6;
+}
+
+.instructions li {
+    margin: 8px 0;
+}
+
+.instructions strong {
+    color: #ffd700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+    padding: 5px;
+  }
+    
+  header h1 {
+    font-size: 1.8rem;
+  }
+    
+    .scoreboard {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .score-section {
+        margin: 0;
+    }
+    
+    .player-buttons, .direction-buttons, .defense-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .countdown-display {
+        font-size: 2.5rem;
+        padding: 15px 25px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+/* Focus styles for keyboard navigation */
+button:focus {
+    outline: 3px solid #ffd700;
+    outline-offset: 2px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto; /* <— add this line */
+  background-color: #0d0f24;
+}
+
+#hud {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+
+
+#game-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+  .instructions {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+
+  .main-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #goalballCanvas {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  .scoreboard {
+    flex-direction: column;
+  }
+
+  .instructions {
+    font-size: 0.9rem;
+  }
+}
+
+
+

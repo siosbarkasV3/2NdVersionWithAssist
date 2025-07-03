@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Teams - EGCA European 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="EGCA European 2025 Home">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="info.html" class="nav-link" data-translate="nav-info">Info</a>
+                </li>
+                <li class="nav-item">
+                    <a href="invitations.html" class="nav-link" data-translate="nav-invitations">Invitations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="teams.html" class="nav-link active" data-translate="nav-teams">Teams</a>
+                </li>
+                <li class="nav-item">
+                    <a href="results.html" class="nav-link" data-translate="nav-results">Results</a>
+                </li>
+                <li class="nav-item">
+                    <a href="members.html" class="nav-link" data-translate="nav-members">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a href="help.html" class="nav-link" data-translate="nav-help">Help</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <div class="language-switcher">
+                    <button class="language-toggle" id="languageToggle">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <button class="language-option" data-lang="en">
+                            <span class="flag">🇬🇧</span> English
+                        </button>
+                        <button class="language-option" data-lang="el">
+                            <span class="flag">🇬🇷</span> Ελληνικά
+                        </button>
+                        <button class="language-option" data-lang="fr">
+                            <span class="flag">🇫🇷</span> Français
+                        </button>
+                        <button class="language-option" data-lang="de">
+                            <span class="flag">🇩🇪</span> Deutsch
+                        </button>
+                        <button class="language-option" data-lang="it">
+                            <span class="flag">🇮🇹</span> Italiano
+                        </button>
+                        <button class="language-option" data-lang="es">
+                            <span class="flag">🇪🇸</span> Español
+                        </button>
+                        <button class="language-option" data-lang="pl">
+                            <span class="flag">🇵🇱</span> Polski
+                        </button>
+                        <button class="language-option" data-lang="nl">
+                            <span class="flag">🇳🇱</span> Nederlands
+                        </button>
+                    </div>
+                </div>
+                <button class="dark-mode-toggle" id="darkModeToggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html" class="sidebar-link">Home</a></li>
+            <li><a href="info.html" class="sidebar-link">Info</a></li>
+            <li><a href="invitations.html" class="sidebar-link">Invitations</a></li>
+            <li><a href="teams.html" class="sidebar-link active">Teams</a></li>
+            <li><a href="results.html" class="sidebar-link">Results</a></li>
+            <li><a href="members.html" class="sidebar-link">Members</a></li>
+            <li><a href="help.html" class="sidebar-link">Help</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title fade-in" data-translate="page-title-teams">Meet the Teams</h1>
+                <p class="page-subtitle fade-in" data-translate="page-subtitle-teams">Discover the exceptional teams competing in EGCA European 2025</p>
+            </div>
+        </div>
+
+        <!-- Team Filters -->
+        <section class="team-filters section-fade">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Teams</button>
+                    <button class="filter-btn" data-filter="western">Western Europe</button>
+                    <button class="filter-btn" data-filter="eastern">Eastern Europe</button>
+                    <button class="filter-btn" data-filter="northern">Northern Europe</button>
+                    <button class="filter-btn" data-filter="southern">Southern Europe</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teams Grid -->
+        <section class="teams-grid section-fade">
+            <div class="container">
+                <div class="teams-container" id="teamsContainer">
+                    <!-- Teams will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EGCA European 2025</h3>
+                    <p>Celebrating excellence in adaptive sports and international unity through goalball.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="info.html">About Tournament</a></li>
+                        <li><a href="teams.html">Teams</a></li>
+                        <li><a href="invitations.html">Registration</a></li>
+                        <li><a href="help.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> info@egca2025.eu</p>
+                    <p><i class="fas fa-phone"></i> +30 231 123 4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Thessaloniki, Greece</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EGCA European Goalball Tournament. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Team Modal -->
+    <div class="team-modal" id="teamModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <span class="team-flag-large" id="modalTeamFlag">🇬🇷</span>
+                    <h2 id="modalTeamName">Team Greece</h2>
+                </div>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-users"></i> Players</h3>
+                    <div class="players-grid" id="modalPlayers">
+                        <!-- Dynamic player content -->
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-user-tie"></i> Coaching Staff</h3>
+                    <div class="staff-list" id="modalStaff">
+                        <!-- Dynamic staff content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

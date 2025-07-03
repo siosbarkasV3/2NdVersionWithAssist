@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Goalball – Paralympic Sport Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div id="game-container">
+    <div class="container">
+        <header>
+            <h1>Enhanced Goalball</h1>
+            <p class="subtitle">Paralympic Sport Simulation</p>
+        </header>
+
+        <div id="hud">
+            <div class="scoreboard">
+                <div class="score-section">
+                    <span class="team-label">YOU</span>
+                    <span id="userScore" class="score">0</span>
+                </div>
+                <div class="vs">VS</div>
+                <div class="score-section">
+                    <span class="team-label">BOT</span>
+                    <span id="botScore" class="score">0</span>
+                </div>
+            </div>
+            
+            <div id="gameMessage" class="game-message">
+                Welcome to Goalball! Click "Play Game" to start your Paralympic sport experience.
+            </div>
+        </div>
+
+        <div class="game-area">
+            <canvas id="goalballCanvas" width="600" height="900"></canvas>
+            
+            <div id="gameOverlay" class="game-overlay">
+                <div id="countdownDisplay" class="countdown-display"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="playButton" class="main-button">Play Game</button>
+            <button id="playAgainButton" class="main-button" style="display: none;">Play Again</button>
+            
+            <div id="serveControls" class="serve-controls" style="display: none;">
+                <div class="control-group">
+                    <label>Choose Server:</label>
+                    <div class="player-buttons">
+                        <button class="player-btn" data-player="0">P1</button>
+                        <button class="player-btn" data-player="1">P2</button>
+                        <button class="player-btn" data-player="2">P3</button>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label>Choose Direction:</label>
+                    <div class="direction-buttons">
+                        <button class="direction-btn" data-direction="left">Left</button>
+                        <button class="direction-btn" data-direction="center">Center</button>
+                        <button class="direction-btn" data-direction="right">Right</button>
+                    </div>
+                </div>
+                
+                <button id="serveButton" class="serve-button" disabled>Serve Ball</button>
+            </div>
+            
+            <div id="defenseControls" class="defense-controls" style="display: none;">
+                <div class="control-group">
+                    <label>Position Your Defenders:</label>
+                    <div class="defense-buttons">
+                        <button class="defense-btn" data-defense="left">Defend Left</button>
+                        <button class="defense-btn" data-defense="center">Defend Center</button>
+                        <button class="defense-btn" data-defense="right">Defend Right</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <ul>
+                <li><strong>Serving:</strong> Choose which player serves and the direction</li>
+                <li><strong>Defending:</strong> Listen for audio cues and position your defenders</li>
+                <li><strong>Scoring:</strong> First team to reach 5 points wins</li>
+                <li><strong>Audio:</strong> Ball movement creates directional sound cues</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="assets/generate_audio.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

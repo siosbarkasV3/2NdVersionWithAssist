@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizing Committee - EGCA European 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="EGCA European 2025 Home">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="info.html" class="nav-link" data-translate="nav-info">Info</a>
+                </li>
+                <li class="nav-item">
+                    <a href="invitations.html" class="nav-link" data-translate="nav-invitations">Invitations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="teams.html" class="nav-link" data-translate="nav-teams">Teams</a>
+                </li>
+                <li class="nav-item">
+                    <a href="results.html" class="nav-link" data-translate="nav-results">Results</a>
+                </li>
+                <li class="nav-item">
+                    <a href="members.html" class="nav-link active" data-translate="nav-members">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a href="help.html" class="nav-link" data-translate="nav-help">Help</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <div class="language-switcher">
+                    <button class="language-toggle" id="languageToggle">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <button class="language-option" data-lang="en">
+                            <span class="flag">🇬🇧</span> English
+                        </button>
+                        <button class="language-option" data-lang="el">
+                            <span class="flag">🇬🇷</span> Ελληνικά
+                        </button>
+                        <button class="language-option" data-lang="fr">
+                            <span class="flag">🇫🇷</span> Français
+                        </button>
+                        <button class="language-option" data-lang="de">
+                            <span class="flag">🇩🇪</span> Deutsch
+                        </button>
+                        <button class="language-option" data-lang="it">
+                            <span class="flag">🇮🇹</span> Italiano
+                        </button>
+                        <button class="language-option" data-lang="es">
+                            <span class="flag">🇪🇸</span> Español
+                        </button>
+                        <button class="language-option" data-lang="pl">
+                            <span class="flag">🇵🇱</span> Polski
+                        </button>
+                        <button class="language-option" data-lang="nl">
+                            <span class="flag">🇳🇱</span> Nederlands
+                        </button>
+                    </div>
+                </div>
+                <button class="dark-mode-toggle" id="darkModeToggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html" class="sidebar-link">Home</a></li>
+            <li><a href="info.html" class="sidebar-link">Info</a></li>
+            <li><a href="invitations.html" class="sidebar-link">Invitations</a></li>
+            <li><a href="teams.html" class="sidebar-link">Teams</a></li>
+            <li><a href="results.html" class="sidebar-link">Results</a></li>
+            <li><a href="members.html" class="sidebar-link active">Members</a></li>
+            <li><a href="help.html" class="sidebar-link">Help</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title fade-in" data-translate="page-title-members">Organizing Committee</h1>
+                <p class="page-subtitle fade-in" data-translate="page-subtitle-members">Meet the dedicated team behind EGCA European 2025</p>
+            </div>
+        </div>
+
+        <!-- Leadership Team -->
+        <section class="leadership-team section-fade">
+            <div class="container">
+                <h2 class="section-title">Leadership Team</h2>
+                <div class="leadership-grid">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Dr. Maria Konstantinou</h3>
+                            <p class="member-role">Tournament Director</p>
+                            <p class="member-description">Leading Paralympic sports organizer with 15+ years experience in adaptive athletics and international competitions.</p>
+                            <a href="mailto:maria.konstantinou@egca2025.eu" class="member-contact">
+                                <i class="fas fa-envelope"></i> Contact
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Andreas Dimitriou</h3>
+                            <p class="member-role">Competition Manager</p>
+                            <p class="member-description">Former Paralympic goalball athlete and certified IBSA official with extensive tournament management experience.</p>
+                            <a href="mailto:andreas.dimitriou@egca2025.eu" class="member-contact">
+                                <i class="fas fa-envelope"></i> Contact
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Elena Papadopoulos</h3>
+                            <p class="member-role">Accessibility Coordinator</p>
+                            <p class="member-description">Accessibility specialist ensuring full inclusive access and support services for all participants and spectators.</p>
+                            <a href="mailto:elena.papadopoulos@egca2025.eu" class="member-contact">
+                                <i class="fas fa-envelope"></i> Contact
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Thomas Müller</h3>
+                            <p class="member-role">International Relations</p>
+                            <p class="member-description">Coordinating with European goalball federations and managing international team logistics and communications.</p>
+                            <a href="mailto:thomas.muller@egca2025.eu" class="member-contact">
+                                <i class="fas fa-envelope"></i> Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Operations Team -->
+        <section class="operations-team section-fade">
+            <div class="container">
+                <h2 class="section-title">Operations Team</h2>
+                <div class="operations-grid">
+                    <div class="operation-card">
+                        <div class="operation-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Logistics Coordination</h3>
+                        <p>Managing venue setup, equipment, transportation, and accommodation logistics for all teams and officials.</p>
+                        <div class="team-members">
+                            <span>Sophia Angelou</span> - Lead Coordinator<br>
+                            <span>Michalis Georgiadis</span> - Venue Manager
+                        </div>
+                    </div>
+
+                    <div class="operation-card">
+                        <div class="operation-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Volunteer Management</h3>
+                        <p>Recruiting, training, and coordinating volunteers to support all aspects of the tournament operations.</p>
+                        <div class="team-members">
+                            <span>Katerina Ioannou</span> - Volunteer Director<br>
+                            <span>Nikos Stavros</span> - Training Coordinator
+                        </div>
+                    </div>
+
+                    <div class="operation-card">
+                        <div class="operation-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Media & Communications</h3>
+                        <p>Handling media relations, live streaming, photography, and social media coverage of the tournament.</p>
+                        <div class="team-members">
+                            <span>Alexandra Pappas</span> - Media Director<br>
+                            <span>Dimitris Kostas</span> - Digital Content Manager
+                        </div>
+                    </div>
+
+                    <div class="operation-card">
+                        <div class="operation-icon">
+                            <i class="fas fa-universal-access"></i>
+                        </div>
+                        <h3>Accessibility Services</h3>
+                        <p>Ensuring comprehensive accessibility support, including audio description, mobility assistance, and specialized services.</p>
+                        <div class="team-members">
+                            <span>Christina Mavros</span> - Services Coordinator<br>
+                            <span>Yannis Nikolaidis</span> - Technical Support
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Team -->
+        <section class="volunteer-team section-fade">
+            <div class="container">
+                <h2 class="section-title">Volunteer Support Services</h2>
+                <div class="volunteer-services-grid">
+                    <div class="content-card service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <h3>Information & Guidance</h3>
+                        <ul>
+                            <li>Venue information desks</li>
+                            <li>Multilingual support</li>
+                            <li>Wayfinding assistance</li>
+                            <li>General tournament information</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Competition Support</h3>
+                        <ul>
+                            <li>Match officials assistance</li>
+                            <li>Scorekeeping support</li>
+                            <li>Equipment management</li>
+                            <li>Venue setup and breakdown</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Team Services</h3>
+                        <ul>
+                            <li>Team liaison support</li>
+                            <li>Training session assistance</li>
+                            <li>Meal and accommodation coordination</li>
+                            <li>Transportation support</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Spectator Experience</h3>
+                        <ul>
+                            <li>Guest services</li>
+                            <li>Accessibility assistance</li>
+                            <li>Event atmosphere enhancement</li>
+                            <li>Cultural exchange facilitation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Our Team -->
+        <section class="join-team section-fade">
+            <div class="container">
+                <div class="join-card">
+                    <div class="join-content">
+                        <h2>Join Our Team</h2>
+                        <p>Be part of making EGCA European 2025 an unforgettable experience for athletes and spectators alike. We welcome volunteers and partners who share our passion for adaptive sports and international unity.</p>
+                        
+                        <div class="join-options">
+                            <div class="join-option">
+                                <h3><i class="fas fa-hand-heart"></i> Volunteer</h3>
+                                <p>Contribute your time and skills to support the tournament operations and create memorable experiences for all participants.</p>
+                                <a href="help.html" class="btn btn-primary">Apply to Volunteer</a>
+                            </div>
+                            
+                            <div class="join-option">
+                                <h3><i class="fas fa-handshake"></i> Partner with Us</h3>
+                                <p>Join us as a sponsor or partner to support European goalball and promote inclusive sports in your community.</p>
+                                <a href="help.html" class="btn btn-outline">Become a Partner</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EGCA European 2025</h3>
+                    <p>Celebrating excellence in adaptive sports and international unity through goalball.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="info.html">About Tournament</a></li>
+                        <li><a href="teams.html">Teams</a></li>
+                        <li><a href="invitations.html">Registration</a></li>
+                        <li><a href="help.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> info@egca2025.eu</p>
+                    <p><i class="fas fa-phone"></i> +30 231 123 4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Thessaloniki, Greece</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EGCA European Goalball Tournament. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & About - EGCA European 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="EGCA European 2025 Home">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="info.html" class="nav-link" data-translate="nav-info">Info</a>
+                </li>
+                <li class="nav-item">
+                    <a href="invitations.html" class="nav-link" data-translate="nav-invitations">Invitations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="teams.html" class="nav-link" data-translate="nav-teams">Teams</a>
+                </li>
+                <li class="nav-item">
+                    <a href="results.html" class="nav-link" data-translate="nav-results">Results</a>
+                </li>
+                <li class="nav-item">
+                    <a href="members.html" class="nav-link" data-translate="nav-members">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a href="help.html" class="nav-link active" data-translate="nav-help">Help</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <div class="language-switcher">
+                    <button class="language-toggle" id="languageToggle">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <button class="language-option" data-lang="en">
+                            <span class="flag">🇬🇧</span> English
+                        </button>
+                        <button class="language-option" data-lang="el">
+                            <span class="flag">🇬🇷</span> Ελληνικά
+                        </button>
+                        <button class="language-option" data-lang="fr">
+                            <span class="flag">🇫🇷</span> Français
+                        </button>
+                        <button class="language-option" data-lang="de">
+                            <span class="flag">🇩🇪</span> Deutsch
+                        </button>
+                        <button class="language-option" data-lang="it">
+                            <span class="flag">🇮🇹</span> Italiano
+                        </button>
+                        <button class="language-option" data-lang="es">
+                            <span class="flag">🇪🇸</span> Español
+                        </button>
+                        <button class="language-option" data-lang="pl">
+                            <span class="flag">🇵🇱</span> Polski
+                        </button>
+                        <button class="language-option" data-lang="nl">
+                            <span class="flag">🇳🇱</span> Nederlands
+                        </button>
+                    </div>
+                </div>
+                <button class="dark-mode-toggle" id="darkModeToggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html" class="sidebar-link">Home</a></li>
+            <li><a href="info.html" class="sidebar-link">Info</a></li>
+            <li><a href="invitations.html" class="sidebar-link">Invitations</a></li>
+            <li><a href="teams.html" class="sidebar-link">Teams</a></li>
+            <li><a href="results.html" class="sidebar-link">Results</a></li>
+            <li><a href="members.html" class="sidebar-link">Members</a></li>
+            <li><a href="help.html" class="sidebar-link active">Help</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title fade-in">Help & About</h1>
+                <p class="page-subtitle fade-in">Contact information, frequently asked questions, and website details</p>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <section class="contact-info-section section-fade">
+            <div class="container">
+                <h2 class="section-title">Contact Information</h2>
+                <div class="content-card">
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Location</h3>
+                            <p>EGCA Tournament Office<br>
+                            Thessaloniki Sports Complex<br>
+                            54636 Thessaloniki, Greece</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h3>Phone</h3>
+                            <p>Main Office: <a href="tel:+302311234567">+30 231 123 4567</a><br>
+                            Registration: <a href="tel:+302311234568">+30 231 123 4568</a><br>
+                            Media Inquiries: <a href="tel:+302311234569">+30 231 123 4569</a></p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Email</h3>
+                            <p>General: <a href="mailto:info@egca2025.eu">info@egca2025.eu</a><br>
+                            Registration: <a href="mailto:registration@egca2025.eu">registration@egca2025.eu</a><br>
+                            Media: <a href="mailto:media@egca2025.eu">media@egca2025.eu</a></p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Office Hours</h3>
+                            <p>Monday - Friday: 09:00 - 17:00 EET<br>
+                            Saturday: 10:00 - 14:00 EET<br>
+                            Sunday: Closed<br>
+                            <small>During tournament: 24/7 support</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="contact-form-section section-fade">
+            <div class="container">
+                <h2 class="section-title">Contact Form</h2>
+                <div class="form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="registration">Team Registration</option>
+                                    <option value="volunteer">Volunteer Opportunities</option>
+                                    <option value="media">Media Inquiries</option>
+                                    <option value="sponsorship">Sponsorship</option>
+                                    <option value="accessibility">Accessibility Services</option>
+                                    <option value="general">General Information</option>
+                                    <option value="technical">Website Technical Issue</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="priority">Priority Level</label>
+                                <select id="priority" name="priority">
+                                    <option value="normal">Normal</option>
+                                    <option value="high">High</option>
+                                    <option value="urgent">Urgent</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Please provide details about your inquiry..."></textarea>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                            <button type="reset" class="btn btn-outline">
+                                <i class="fas fa-undo"></i> Clear Form
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section section-fade">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How can I register my team?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Team registration is handled through our official registration process. Please visit the <a href="invitations.html">Invitations page</a> for detailed information and required documents. Contact our registration team at <a href="mailto:registration@egca2025.eu">registration@egca2025.eu</a> for assistance.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What accessibility services are provided?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We provide comprehensive accessibility services including audio descriptions, mobility assistance, accessible transportation, specialized accommodation, and dedicated support staff. All venues are fully accessible with tactile guidance systems and Braille signage.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Is accommodation provided?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, we provide accommodation for all registered teams in accessible hotels near the tournament venue. Accommodation includes meals and transportation to and from the sports arena. Details will be provided upon registration confirmation.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How can I volunteer?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We welcome volunteers to help make this tournament successful! Visit our <a href="members.html">Members page</a> to learn about volunteer opportunities, or contact us directly. We provide training and support for all volunteer positions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About This Website -->
+        <section class="website-info section-fade">
+            <div class="container">
+                <h2 class="section-title">About This Website</h2>
+                <div class="website-info-grid">
+                    <div class="content-card info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-universal-access"></i>
+                        </div>
+                        <h3>Accessibility Commitment</h3>
+                        <p>This website is designed to meet WCAG 2.1 AA accessibility standards. We've implemented screen reader compatibility, keyboard navigation, high contrast support, and clear content structure to ensure everyone can access our information.</p>
+                    </div>
+
+                    <div class="content-card info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Technical Information</h3>
+                        <p>Built with modern web technologies including HTML5, CSS3, and JavaScript. The site uses semantic markup, progressive enhancement, and follows web standards for optimal performance and accessibility.</p>
+                    </div>
+
+                    <div class="content-card info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Browser Support</h3>
+                        <p>Compatible with all modern browsers including Chrome, Firefox, Safari, and Edge. The website works on all devices and screen sizes with responsive design principles.</p>
+                    </div>
+
+                    <div class="content-card info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Experience</h3>
+                        <p>Fully optimized for mobile devices with touch-friendly navigation, readable fonts, and streamlined content. Dark mode support is available across all devices for better viewing comfort.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Developer Credits -->
+        <section class="developer-credits section-fade">
+            <div class="container">
+                <h2 class="section-title">Website Developed By</h2>
+                <div class="developers-grid">
+                    <div class="developer-card">
+                        <div class="developer-info">
+                            <h3>Theofanis Iosif Karalias</h3>
+                            <p class="developer-role">Lead Developer & Designer</p>
+                            <p>Specialized in accessible web development and user experience design for adaptive sports organizations.</p>
+                            <a href="https://www.linkedin.com/in/theofanis-iosif-karalias/" target="_blank" rel="noopener noreferrer" class="developer-link">
+                                <i class="fab fa-linkedin"></i> LinkedIn Profile
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="developer-card">
+                        <div class="developer-info">
+                            <h3>Orfeas Triantafyllidis</h3>
+                            <p class="developer-role">Content & Media Specialist</p>
+                            <p>Expert in digital content creation and multimedia production for sports and cultural events.</p>
+                            <a href="https://filmfreeway.com/Orfeas_Triantafyllidis" target="_blank" rel="noopener noreferrer" class="developer-link">
+                                <i class="fas fa-film"></i> FilmFreeway Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="development-note">
+                    <p><i class="fas fa-heart"></i> This project was built with accessibility, visual clarity, and adaptability in mind — just like the athletes it celebrates.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EGCA European 2025</h3>
+                    <p>Celebrating excellence in adaptive sports and international unity through goalball.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="info.html">About Tournament</a></li>
+                        <li><a href="teams.html">Teams</a></li>
+                        <li><a href="invitations.html">Registration</a></li>
+                        <li><a href="help.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> info@egca2025.eu</p>
+                    <p><i class="fas fa-phone"></i> +30 231 123 4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Thessaloniki, Greece</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EGCA European Goalball Tournament. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

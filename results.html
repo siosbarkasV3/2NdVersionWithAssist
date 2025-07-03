@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Results - EGCA European 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="EGCA European 2025 Home">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="info.html" class="nav-link" data-translate="nav-info">Info</a>
+                </li>
+                <li class="nav-item">
+                    <a href="invitations.html" class="nav-link" data-translate="nav-invitations">Invitations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="teams.html" class="nav-link" data-translate="nav-teams">Teams</a>
+                </li>
+                <li class="nav-item">
+                    <a href="results.html" class="nav-link active" data-translate="nav-results">Results</a>
+                </li>
+                <li class="nav-item">
+                    <a href="members.html" class="nav-link" data-translate="nav-members">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a href="help.html" class="nav-link" data-translate="nav-help">Help</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <div class="language-switcher">
+                    <button class="language-toggle" id="languageToggle">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <button class="language-option" data-lang="en">
+                            <span class="flag">🇬🇧</span> English
+                        </button>
+                        <button class="language-option" data-lang="el">
+                            <span class="flag">🇬🇷</span> Ελληνικά
+                        </button>
+                        <button class="language-option" data-lang="fr">
+                            <span class="flag">🇫🇷</span> Français
+                        </button>
+                        <button class="language-option" data-lang="de">
+                            <span class="flag">🇩🇪</span> Deutsch
+                        </button>
+                        <button class="language-option" data-lang="it">
+                            <span class="flag">🇮🇹</span> Italiano
+                        </button>
+                        <button class="language-option" data-lang="es">
+                            <span class="flag">🇪🇸</span> Español
+                        </button>
+                        <button class="language-option" data-lang="pl">
+                            <span class="flag">🇵🇱</span> Polski
+                        </button>
+                        <button class="language-option" data-lang="nl">
+                            <span class="flag">🇳🇱</span> Nederlands
+                        </button>
+                    </div>
+                </div>
+                <button class="dark-mode-toggle" id="darkModeToggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-trophy"></i>
+                <span>EGCA 2025</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html" class="sidebar-link">Home</a></li>
+            <li><a href="info.html" class="sidebar-link">Info</a></li>
+            <li><a href="invitations.html" class="sidebar-link">Invitations</a></li>
+            <li><a href="teams.html" class="sidebar-link">Teams</a></li>
+            <li><a href="results.html" class="sidebar-link active">Results</a></li>
+            <li><a href="members.html" class="sidebar-link">Members</a></li>
+            <li><a href="help.html" class="sidebar-link">Help</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title fade-in" data-translate="page-title-results">Tournament Results</h1>
+                <p class="page-subtitle fade-in" data-translate="page-subtitle-results">Follow the competition and see how teams are performing</p>
+            </div>
+        </div>
+
+        <!-- Tournament Status -->
+        <section class="tournament-status section-fade">
+            <div class="container">
+                <div class="status-card">
+                    <div class="status-header">
+                        <h2>Tournament Status</h2>
+                        <div class="status-indicator preparing">
+                            <span class="status-dot"></span>
+                            Preparing
+                        </div>
+                    </div>
+                    <div class="status-info">
+                        <div class="status-item">
+                            <strong>Current Phase:</strong> Registration Open
+                        </div>
+                        <div class="status-item">
+                            <strong>Tournament Dates:</strong> March 15-20, 2025
+                        </div>
+                        <div class="status-item">
+                            <strong>Registration Deadline:</strong> February 28, 2025
+                        </div>
+                        <div class="status-item">
+                            <strong>Registered Teams:</strong> <span id="registeredTeams">16</span> teams confirmed
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Standings -->
+        <section class="standings section-fade">
+            <div class="container">
+                <h2 class="section-title">Team Standings</h2>
+                <div class="table-container">
+                    <table class="standings-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Team</th>
+                                <th>Played</th>
+                                <th>Won</th>
+                                <th>Lost</th>
+                                <th>Points</th>
+                                <th>Goal Diff</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="tournament-not-started">
+                                <td colspan="7" class="no-data">
+                                    <i class="fas fa-info-circle"></i>
+                                    Tournament hasn't started yet. Standings will be updated during the competition.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Match Results -->
+        <section class="match-results section-fade">
+            <div class="container">
+                <h2 class="section-title">Match Results</h2>
+                <div class="match-filters">
+                    <button class="match-filter-btn active" data-day="all">All Matches</button>
+                    <button class="match-filter-btn" data-day="day1">Day 1</button>
+                    <button class="match-filter-btn" data-day="day2">Day 2</button>
+                    <button class="match-filter-btn" data-day="day3">Day 3</button>
+                    <button class="match-filter-btn" data-day="day4">Day 4</button>
+                    <button class="match-filter-btn" data-day="day5">Day 5</button>
+                </div>
+                <div class="matches-container">
+                    <div class="no-matches">
+                        <i class="fas fa-calendar-times"></i>
+                        <h3>No Matches Yet</h3>
+                        <p>Match results will be posted here as the tournament progresses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tournament Statistics -->
+        <section class="tournament-stats section-fade">
+            <div class="container">
+                <h2 class="section-title">Tournament Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Goals</h3>
+                            <span class="stat-number">0</span>
+                            <p>Tournament starts March 15</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Matches Played</h3>
+                            <span class="stat-number">0</span>
+                            <p>Out of estimated 45 matches</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Teams</h3>
+                            <span class="stat-number">16</span>
+                            <p>From across Europe</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-globe-europe"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Countries</h3>
+                            <span class="stat-number">16</span>
+                            <p>Represented in tournament</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tournament Schedule -->
+        <section class="tournament-schedule section-fade">
+            <div class="container">
+                <h2 class="section-title">Tournament Schedule</h2>
+                <div class="schedule-timeline">
+                    <div class="schedule-day">
+                        <div class="day-header">
+                            <h3>Day 1 - March 15, 2025</h3>
+                            <span class="day-subtitle">Opening Ceremony & Group Stage</span>
+                        </div>
+                        <div class="day-events">
+                            <div class="event">
+                                <span class="event-time">09:00</span>
+                                <span class="event-desc">Team Registration & Check-in</span>
+                            </div>
+                            <div class="event">
+                                <span class="event-time">11:00</span>
+                                <span class="event-desc">Opening Ceremony</span>
+                            </div>
+                            <div class="event">
+                                <span class="event-time">14:00</span>
+                                <span class="event-desc">Group Stage Matches Begin</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-day">
+                        <div class="day-header">
+                            <h3>Day 2 - March 16, 2025</h3>
+                            <span class="day-subtitle">Group Stage Continues</span>
+                        </div>
+                        <div class="day-events">
+                            <div class="event">
+                                <span class="event-time">09:00</span>
+                                <span class="event-desc">Group Stage Matches</span>
+                            </div>
+                            <div class="event">
+                                <span class="event-time">15:00</span>
+                                <span class="event-desc">Afternoon Session</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-day">
+                        <div class="day-header">
+                            <h3>Day 3 - March 17, 2025</h3>
+                            <span class="day-subtitle">Group Stage Finals</span>
+                        </div>
+                        <div class="day-events">
+                            <div class="event">
+                                <span class="event-time">09:00</span>
+                                <span class="event-desc">Final Group Matches</span>
+                            </div>
+                            <div class="event">
+                                <span class="event-time">16:00</span>
+                                <span class="event-desc">Ranking Determinations</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-day">
+                        <div class="day-header">
+                            <h3>Day 4 - March 18, 2025</h3>
+                            <span class="day-subtitle">Elimination Rounds</span>
+                        </div>
+                        <div class="day-events">
+                            <div class="event">
+                                <span class="event-time">10:00</span>
+                                <span class="event-desc">Quarter-Finals</span>
+                            </div>
+                            <div class="event">
+                                <span class="event-time">15:00</span>
+                                <span class="event-desc">Semi-Finals</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-day">
+                        <div class="day-header">
+                            <h3>Day 5 - March 19, 2025</h3>
+                            <span class="day-subtitle">Finals Day</span>
+                        </div>
+                        <div class="day-events">
+                            <div class="event">
+                                <span class="event-time">11:00</span>
+                                <span class="event-desc">Third Place Match</span>
+                            </div>
+                            <div class="event">
+                                <span class="event-time">15:00</span>
+                                <span class="event-desc">Championship Final</span>
+                            </div>
+                            <div class="event">
+                                <span class="event-time">17:00</span>
+                                <span class="event-desc">Closing Ceremony</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Voting Section -->
+        <section class="team-voting section-fade">
+            <div class="container">
+                <h2 class="section-title" data-translate="vote-for-team">Vote for Your Favorite Team</h2>
+                <div class="content-card">
+                    <div class="voting-content">
+                        <!-- Vote Chart -->
+                        <div class="vote-chart-container">
+                            <h3 data-translate="top-5-teams">Top 5 Teams by Votes</h3>
+                            <canvas id="voteChart" width="400" height="200"></canvas>
+                            <div class="chart-fallback" id="chartFallback">
+                                <div class="vote-bar-chart" id="voteBarChart">
+                                    <!-- Dynamic bars will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Voting Interface -->
+                        <div class="voting-interface" id="votingInterface">
+                            <h3 data-translate="cast-vote">Cast Your Vote</h3>
+                            <div class="team-voting-grid">
+                                <button class="team-vote-btn" data-team="greece">
+                                    <span class="team-flag">🇬🇷</span>
+                                    <span class="team-name">Greece</span>
+                                </button>
+                                <button class="team-vote-btn" data-team="germany">
+                                    <span class="team-flag">🇩🇪</span>
+                                    <span class="team-name">Germany</span>
+                                </button>
+                                <button class="team-vote-btn" data-team="france">
+                                    <span class="team-flag">🇫🇷</span>
+                                    <span class="team-name">France</span>
+                                </button>
+                                <button class="team-vote-btn" data-team="italy">
+                                    <span class="team-flag">🇮🇹</span>
+                                    <span class="team-name">Italy</span>
+                                </button>
+                                <button class="team-vote-btn" data-team="spain">
+                                    <span class="team-flag">🇪🇸</span>
+                                    <span class="team-name">Spain</span>
+                                </button>
+                                <button class="team-vote-btn" data-team="poland">
+                                    <span class="team-flag">🇵🇱</span>
+                                    <span class="team-name">Poland</span>
+                                </button>
+                                <button class="team-vote-btn" data-team="netherlands">
+                                    <span class="team-flag">🇳🇱</span>
+                                    <span class="team-name">Netherlands</span>
+                                </button>
+                                <button class="team-vote-btn" data-team="belgium">
+                                    <span class="team-flag">🇧🇪</span>
+                                    <span class="team-name">Belgium</span>
+                                </button>
+                                <button class="team-vote-btn" data-team="portugal">
+                                    <span class="team-flag">🇵🇹</span>
+                                    <span class="team-name">Portugal</span>
+                                </button>
+                                <button class="team-vote-btn" data-team="finland">
+                                    <span class="team-flag">🇫🇮</span>
+                                    <span class="team-name">Finland</span>
+                                </button>
+                                <button class="team-vote-btn" data-team="sweden">
+                                    <span class="team-flag">🇸🇪</span>
+                                    <span class="team-name">Sweden</span>
+                                </button>
+                                <button class="team-vote-btn" data-team="lithuania">
+                                    <span class="team-flag">🇱🇹</span>
+                                    <span class="team-name">Lithuania</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Thank You Message -->
+                        <div class="vote-thank-you" id="voteThankYou" style="display: none;">
+                            <div class="thank-you-content">
+                                <i class="fas fa-check-circle"></i>
+                                <h3 data-translate="thanks-voting">Thanks for voting!</h3>
+                                <p data-translate="vote-recorded">Your vote has been recorded. Check back to see how the voting progresses!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EGCA European 2025</h3>
+                    <p>Celebrating excellence in adaptive sports and international unity through goalball.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="info.html">About Tournament</a></li>
+                        <li><a href="teams.html">Teams</a></li>
+                        <li><a href="invitations.html">Registration</a></li>
+                        <li><a href="help.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> info@egca2025.eu</p>
+                    <p><i class="fas fa-phone"></i> +30 231 123 4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Thessaloniki, Greece</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EGCA European Goalball Tournament. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
